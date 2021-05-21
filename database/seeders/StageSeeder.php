@@ -12,7 +12,11 @@ class StageSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        \App\Models\Stage::factory(9)->create();
+    {	
+    	for ($i = 0; $i < 9; $i++) {
+        	\App\Models\Stage::factory(1)->create([
+        		'tutorial_id' => \App\Models\Tutorial::all()->random(),
+        	]);
+       	}
     }
 }

@@ -19,6 +19,7 @@ class CreateTutorialsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('material');
+            $table->integer('user_id');
         });
     }
 

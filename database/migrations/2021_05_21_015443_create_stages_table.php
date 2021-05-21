@@ -19,6 +19,7 @@ class CreateStagesTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('image');
+            $table->integer('tutorial_id');
         });
     }
 

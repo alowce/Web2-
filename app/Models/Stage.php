@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Stage extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'title',
+        'content',
+        'image',
+    ];
+
+    public function owner() {
+        return $this->belongsTo(Tutorial::class, 'tutorial_id');
+    }
 }

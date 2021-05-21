@@ -12,7 +12,12 @@ class TutorialSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        \App\Models\Tutorial::factory(9)->create();
+    {	
+    	for ($i = 0; $i < 9; $i++) {
+        	\App\Models\Tutorial::factory(1)->create([
+        		'user_id' => \App\Models\User::all()->random(),
+        	]);
+       	}
+
     }
 }
