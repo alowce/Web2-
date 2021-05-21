@@ -29,6 +29,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => Hash::make('8888888') ,
             'remember_token' => Str::random(10),
+            'contact' => $this->faker->numerify('+## (##) 9####-####'),
+            'image' => $this->faker->imageUrl(360, 360, 'animals', true, 'cats'),
         ];
     }
 
