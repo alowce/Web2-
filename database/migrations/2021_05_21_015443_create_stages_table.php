@@ -18,7 +18,7 @@ class CreateStagesTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->text('content');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('tutorial_id');
         });
     }

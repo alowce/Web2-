@@ -17,8 +17,8 @@ class CreateTutorialsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('description');
-            $table->string('material');
+            $table->string('description')->nullable();
+            $table->string('material')->nullable();
             $table->integer('user_id');
         });
     }
