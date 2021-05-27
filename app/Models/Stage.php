@@ -13,6 +13,7 @@ class Stage extends Model
         'title',
         'content',
         'image',
+        'tutorial_id'
     ];
 
     public function owner() {

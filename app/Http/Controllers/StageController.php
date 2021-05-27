@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Stage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class StageController extends Controller
 {
@@ -35,7 +37,14 @@ class StageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Stage::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'material' => $request->materials,
+            'tutorial_id' => $request->tutorial
+        ]);
+    
+    return Redirect::route('dashboard');
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class TutorialController extends Controller
 {
@@ -35,7 +37,14 @@ class TutorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tutorial::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'material' => $request->materials,
+            'user_id' => Auth::user()->id
+        ]);
+    
+    return Redirect::route('dashboard');
     }
 
     /**

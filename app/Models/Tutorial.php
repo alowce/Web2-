@@ -13,6 +13,7 @@ class Tutorial extends Model
         'title',
         'description',
         'material',
+        'user_id'
     ];
 
     public function owner() {
