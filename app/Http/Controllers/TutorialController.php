@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tutorial;
+use App\Models\Stage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class TutorialController extends Controller
@@ -87,8 +89,11 @@ class TutorialController extends Controller
      * @param  \App\Models\Tutorial  $tutorial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tutorial $tutorial)
+    public function destroy($tutorial)
     {
-        //
+    DB::table('tutorials')->where('id', $tutorial)->delete();
+    DB::table('stages')->where('tutorial_id', $tutorial)->delete();
+
+        return Redirect::route('dashboard');
     }
 }

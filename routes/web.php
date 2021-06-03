@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 
 Route::post('/tutorial/store', [TutorialController::class, 'store'])->middleware(['auth'])->name('create_tutorial');
 
-Route::get('/tutorial/show', [TutorialController::class, 'show'])->middleware(['auth'])->name('show_tutorial');
+Route::get('/tutorial/remove/{id}', [TutorialController::class, 'destroy'])->middleware(['auth'])->name('remove_tutorial');
 
 
 Route::post('/stage/store', [StageController::class, 'store'])->middleware(['auth'])->name('create_stage');
