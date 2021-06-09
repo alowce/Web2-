@@ -91,9 +91,10 @@ class TutorialController extends Controller
      */
     public function destroy($tutorial)
     {
-    DB::table('tutorials')->where('id', $tutorial)->delete();
-    DB::table('stages')->where('tutorial_id', $tutorial)->delete();
-
+        if (Tutorial::find($tutorial)->user_id == Auth::user()->id) {
+            DB::table('tutorials')->where('id', $tutorial)->delete();
+            DB::table('stages')->where('tutorial_id', $tutorial)->delete();
+        }
         return Redirect::route('dashboard');
     }
 }
